@@ -10,12 +10,13 @@ interface Post {
 }
 
 interface PageProps {
-  searchParams: Promise<{ page?: string }>;
+  searchParams: Promise<{ page?: string; success?: string }>;
 }
 
 export default async function AdminPostsPage({ searchParams }: PageProps) {
   const params = await searchParams;
   const page = Number(params.page) || 1;
+  const success = params.success;
   const limit = 10;
   const offset = (page - 1) * limit;
 
@@ -42,7 +43,21 @@ export default async function AdminPostsPage({ searchParams }: PageProps) {
 
   return (
     <div className="container mx-auto p-8">
-      <h1 className="text-3xl font-bold mb-6">Admin Posts</h1>
+      <div className="flex items-center justify-between mb-6">
+        <h1 className="text-3xl font-bold">Admin Posts</h1>
+        <Link
+          href="/admin/posts/new"
+          className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors"
+        >
+          + Create New Post
+        </Link>
+      </div>
+
+      {success === 'created' && (
+        <div className="mb-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
+          Post created successfully!
+        </div>
+      )}
 
       {posts && posts.length > 0 ? (
         <>
