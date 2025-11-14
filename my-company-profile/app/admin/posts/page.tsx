@@ -1,5 +1,8 @@
 import { createServerClient } from '@/lib/supabaseServer';
 import Link from 'next/link';
+import { getSession } from '@/lib/auth/session';
+import { redirect } from 'next/navigation';
+import { DeleteButton } from './DeleteButton';
 
 interface Post {
   id: string;
@@ -14,6 +17,12 @@ interface PageProps {
 }
 
 export default async function AdminPostsPage({ searchParams }: PageProps) {
+  // Check authentication
+  const session = await getSession();
+  if (!session) {
+    redirect('/admin/login');
+  }
+
   const params = await searchParams;
   const page = Number(params.page) || 1;
   const success = params.success;
@@ -62,6 +71,18 @@ export default async function AdminPostsPage({ searchParams }: PageProps) {
           </div>
         )}
 
+        {success === 'updated' && (
+          <div className="mb-6 bg-green-50 border border-green-300 text-green-800 dark:bg-green-900/20 dark:border-green-800 dark:text-green-200 px-4 py-3 rounded-lg">
+            <strong className="font-semibold">Success!</strong> Post updated successfully.
+          </div>
+        )}
+
+        {success === 'deleted' && (
+          <div className="mb-6 bg-green-50 border border-green-300 text-green-800 dark:bg-green-900/20 dark:border-green-800 dark:text-green-200 px-4 py-3 rounded-lg">
+            <strong className="font-semibold">Success!</strong> Post deleted successfully.
+          </div>
+        )}
+
         {posts && posts.length > 0 ? (
         <>
           <div className="overflow-x-auto bg-white dark:bg-gray-800 shadow-md rounded-lg border border-gray-200 dark:border-gray-700">
@@ -73,6 +94,9 @@ export default async function AdminPostsPage({ searchParams }: PageProps) {
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 dark:text-gray-200 uppercase tracking-wider">
                     Created At
+                  </th>
+                  <th className="px-6 py-4 text-right text-xs font-semibold text-gray-700 dark:text-gray-200 uppercase tracking-wider">
+                    Actions
                   </th>
                 </tr>
               </thead>
@@ -93,6 +117,17 @@ export default async function AdminPostsPage({ searchParams }: PageProps) {
                           hour: '2-digit',
                           minute: '2-digit',
                         })}
+                      </div>
+                    </td>
+                    <td className="px-6 py-4 text-right">
+                      <div className="flex justify-end gap-2">
+                        <Link
+                          href={`/admin/posts/${post.id}/edit`}
+                          className="px-3 py-1.5 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors"
+                        >
+                          Edit
+                        </Link>
+                        <DeleteButton postId={post.id} />
                       </div>
                     </td>
                   </tr>

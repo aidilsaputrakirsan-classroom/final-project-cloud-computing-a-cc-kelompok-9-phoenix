@@ -1,5 +1,7 @@
 import { createServerClient } from '@/lib/supabaseServer';
 import Link from 'next/link';
+import { getSession } from '@/lib/auth/session';
+import { redirect } from 'next/navigation';
 import { ContentForm } from './ContentForm';
 
 async function getSiteContent() {
@@ -13,6 +15,12 @@ async function getSiteContent() {
 }
 
 export default async function ContentManagement() {
+  // Check authentication
+  const session = await getSession();
+  if (!session) {
+    redirect('/admin/login');
+  }
+
   const content = await getSiteContent();
 
   const sections = {
