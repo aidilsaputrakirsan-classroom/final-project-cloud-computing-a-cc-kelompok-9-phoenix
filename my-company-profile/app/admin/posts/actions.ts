@@ -4,7 +4,12 @@ import { createServerClient } from '@/lib/supabaseServer';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 
-export async function createPost(formData: FormData) {
+type FormState = {
+  success: boolean;
+  error: string;
+} | null;
+
+export async function createPost(prevState: FormState, formData: FormData) {
   const title = formData.get('title') as string;
   const body = formData.get('body') as string;
 
