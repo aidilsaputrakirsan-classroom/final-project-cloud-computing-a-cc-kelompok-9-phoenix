@@ -1,5 +1,8 @@
 import { createServerClient } from '@/lib/supabaseServer';
 import Link from 'next/link';
+import { getSession } from '@/lib/auth/session';
+import { redirect } from 'next/navigation';
+import { LogoutButton } from './LogoutButton';
 
 async function getStats() {
   const supabase = createServerClient();
@@ -21,6 +24,12 @@ async function getStats() {
 }
 
 export default async function AdminDashboard() {
+  // Check authentication
+  const session = await getSession();
+  if (!session) {
+    redirect('/admin/login');
+  }
+
   const stats = await getStats();
 
   return (
@@ -35,12 +44,15 @@ export default async function AdminDashboard() {
                 PT. Digital Maju - Content Management
               </p>
             </div>
-            <Link
-              href="/"
-              className="px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:bg-gray-700 dark:hover:bg-gray-100 transition-colors font-medium"
-            >
-              ← Back to Website
-            </Link>
+            <div className="flex gap-3">
+              <Link
+                href="/"
+                className="px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:bg-gray-700 dark:hover:bg-gray-100 transition-colors font-medium"
+              >
+                ← Back to Website
+              </Link>
+              <LogoutButton />
+            </div>
           </div>
         </div>
 
