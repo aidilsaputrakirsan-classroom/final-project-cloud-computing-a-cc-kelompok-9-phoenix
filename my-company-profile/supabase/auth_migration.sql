@@ -7,11 +7,12 @@ create table if not exists admin_users (
 );
 
 -- Insert admin user (username: admin, password: 12345678)
--- Password hash: SHA256(password + secret_key)
--- Hash for "12345678" with secret key
+-- Password hash: SHA256('12345678' + 'your-secret-key-change-in-production')
+-- Correct hash: 571142f7fc29542fcacca178f920897ea9a7d91a731657d8a67971ce5f458a9a
 insert into admin_users (username, password_hash) values
-  ('admin', 'e6c3da5b206634d7f3f3586d747ffdb36b5c675757b380c6a5fe5c570c714349')
-on conflict (username) do nothing;
+  ('admin', '571142f7fc29542fcacca178f920897ea9a7d91a731657d8a67971ce5f458a9a')
+on conflict (username) do update
+  set password_hash = excluded.password_hash;
 
 -- Modify posts table to make user_id nullable and text type
 alter table posts
