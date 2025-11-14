@@ -92,7 +92,7 @@ export default async function AdminDashboard() {
         </div>
 
         {/* Quick Actions */}
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           <Link
             href="/admin/posts"
             className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8 hover:border-gray-900 dark:hover:border-white transition-all hover:shadow-xl group"
@@ -125,6 +125,26 @@ export default async function AdminDashboard() {
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mt-1">
                   Update hero, about, services, and contact sections
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center text-blue-600 dark:text-blue-400 font-medium">
+              Open →
+            </div>
+          </Link>
+
+          <Link
+            href="/admin/team"
+            className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8 hover:border-gray-900 dark:hover:border-white transition-all hover:shadow-xl group"
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div className="text-5xl">👥</div>
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  Manage Team
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mt-1">
+                  Add, edit, and remove team members
                 </p>
               </div>
             </div>

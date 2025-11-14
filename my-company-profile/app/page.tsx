@@ -33,12 +33,22 @@ async function getLatestPosts() {
   return data || [];
 }
 
+async function getTeamMembers() {
+  const supabase = createServerClient();
+  const { data } = await supabase
+    .from('team_members')
+    .select('*')
+    .order('display_order', { ascending: true });
+  return data || [];
+}
+
 export default async function Home() {
   const heroContent = await getSiteContent('hero');
   const aboutContent = await getSiteContent('about');
   const servicesContent = await getSiteContent('services');
   const contactContent = await getSiteContent('contact');
   const latestPosts = await getLatestPosts();
+  const teamMembers = await getTeamMembers();
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
@@ -61,6 +71,9 @@ export default async function Home() {
               </a>
               <a href="#portfolio" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">
                 Portfolio
+              </a>
+              <a href="#team" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">
+                Team
               </a>
               <a href="#contact" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">
                 Contact
@@ -218,8 +231,49 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* Team Section */}
+      <section id="team" className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+              Tim Kami
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-12 text-center">
+              Kenali para profesional di balik kesuksesan kami
+            </p>
+            {teamMembers.length > 0 ? (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {teamMembers.map((member: any) => (
+                  <div
+                    key={member.id}
+                    className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8 text-center hover:shadow-xl transition-all"
+                  >
+                    <div className="text-6xl mb-4">{member.avatar || '👤'}</div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                      {member.name}
+                    </h3>
+                    <p className="text-blue-600 dark:text-blue-400 font-medium mb-4">
+                      {member.position}
+                    </p>
+                    {member.bio && (
+                      <p className="text-gray-600 dark:text-gray-300 text-sm">
+                        {member.bio}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-gray-500 dark:text-gray-400">Belum ada anggota tim.</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
-      <section id="contact" className="py-20">
+      <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800/50">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
