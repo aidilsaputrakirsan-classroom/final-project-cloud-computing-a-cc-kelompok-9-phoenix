@@ -1,59 +1,254 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 🔥 Phoenix Task Manager
 
-## About Laravel
+### *Kelola Tugas dengan Efisien & Elegan*
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+[![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+*Final Project Cloud Computing - Kelompok 9 Phoenix* 🚀
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+[Demo](#) • [Documentation](#) • [Report Bug](#) • [Request Feature](#)
 
-## Learning Laravel
+</div>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## ✨ Tentang Proyek
 
-## Laravel Sponsors
+**Phoenix Task Manager** adalah aplikasi manajemen tugas modern yang dirancang untuk meningkatkan produktivitas tim. Dibangun dengan Laravel 12 dan Tailwind CSS, aplikasi ini menyediakan antarmuka yang intuitif dan fitur lengkap untuk mengelola tugas harian Anda.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🎯 Fitur Utama
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+<table>
+<tr>
+<td width="50%">
 
-## Contributing
+### 🔐 Authentication System
+- ✅ Registrasi & Login
+- ✅ Email Verification
+- ✅ Password Reset
+- ✅ Session Management
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+</td>
+<td width="50%">
 
-## Code of Conduct
+### 📋 Task Management
+- ✅ Create, Read, Update, Delete
+- ✅ Set Deadlines & Priorities
+- ✅ Task Status Tracking
+- ✅ Search & Filter
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+</td>
+</tr>
+<tr>
+<td width="50%">
 
-## Security Vulnerabilities
+### 🏷️ Category Management
+- ✅ Custom Categories
+- ✅ Color-coded Labels
+- ✅ Category-based Organization
+- ✅ Bulk Operations
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+</td>
+<td width="50%">
 
-## License
+### 👤 Profile Management
+- ✅ Update Personal Info
+- ✅ Change Password
+- ✅ Account Security
+- ✅ Delete Account
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+</td>
+</tr>
+</table>
+
+---
+
+## 🛠️ Tech Stack
+
+```
+
+Frontend         Backend          Database         Tools
+────────         ───────          ────────         ─────
+Blade            Laravel 12       MySQL            Vite
+Tailwind CSS     PHP 8.2+         SQLite           Composer
+Alpine.js        Laravel Breeze                    NPM
+
+```
+
+---
+
+## 📦 Installation
+
+### Prerequisites
+
+```
+
+✓ PHP >= 8.2
+✓ Composer
+✓ Node.js \& NPM
+✓ MySQL Server
+
+```
+
+### Setup Steps
+
+```
+
+
+# 1️⃣ Clone Repository
+
+git clone https://github.com/aidilsaputrakirsan-classroom/final-project-cloud-computing-a-cc-kelompok-9-phoenix.git
+cd final-project-cloud-computing-a-cc-kelompok-9-phoenix
+git checkout feature/authentication-system-and-task-management
+
+# 2️⃣ Install Dependencies
+
+composer install
+npm install
+
+# 3️⃣ Environment Configuration
+
+cp .env.example .env
+php artisan key:generate
+
+# 4️⃣ Database Setup
+
+# Edit .env file dengan konfigurasi database MySQL Anda
+
+php artisan migrate
+
+# 5️⃣ Build Assets
+
+npm run build
+
+```
+
+---
+
+## 🚀 Usage
+
+### Development Mode
+
+```
+
+
+# 🔥 Run all services with hot reload
+
+composer dev
+
+```
+
+<details>
+<summary><b>📌 Manual Development</b></summary>
+
+```
+
+
+# Terminal 1 - Laravel Server
+
+php artisan serve
+
+# Terminal 2 - Vite Dev Server
+
+npm run dev
+
+# Terminal 3 - Queue Worker (Optional)
+
+php artisan queue:listen
+
+# Terminal 4 - Logs (Optional)
+
+php artisan pail
+
+```
+
+</details>
+
+### Production Build
+
+```
+
+npm run build
+php artisan optimize
+php artisan config:cache
+php artisan route:cache
+
+```
+
+---
+
+## 📁 Project Structure
+
+```
+
+📦 phoenix-task-manager
+├── 📂 app
+│   ├── 📂 Http/Controllers
+│   │   ├── TaskController.php
+│   │   ├── CategoryController.php
+│   │   └── ProfileController.php
+│   └── 📂 Models
+│       ├── Task.php
+│       ├── Category.php
+│       └── User.php
+├── 📂 database
+│   └── 📂 migrations
+│       ├── create_tasks_table.php
+│       └── create_categories_table.php
+├── 📂 resources
+│   └── 📂 views
+│       ├── tasks/
+│       ├── categories/
+│       └── profile/
+└── 📂 routes
+└── web.php
+
+```
+
+---
+
+## 🤝 Contributing
+
+Kontribusi sangat kami hargai! Untuk berkontribusi:
+
+1. 🍴 Fork repository ini
+2. 🌿 Buat branch fitur (`git checkout -b feature/AmazingFeature`)
+3. 💾 Commit perubahan (`git commit -m 'Add: Amazing Feature'`)
+4. 📤 Push ke branch (`git push origin feature/AmazingFeature`)
+5. 🔃 Buat Pull Request
+
+---
+
+## 📄 License
+
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
+
+---
+
+## 📞 Support
+
+Jika Anda memiliki pertanyaan atau butuh bantuan:
+
+- 📧 Email: phoenix@example.com
+- 💬 Discord: [Join Our Server](#)
+- 📝 Issues: [GitHub Issues](https://github.com/aidilsaputrakirsan-classroom/final-project-cloud-computing-a-cc-kelompok-9-phoenix/issues)
+
+---
+
+<div align="center">
+
+**[⬆ Back to Top](#-phoenix-task-manager)**
+
+Made with ❤️ by **Kelompok 9 Phoenix**
+
+⭐ Star us on GitHub — it motivates us a lot!
+
+</div>
+
